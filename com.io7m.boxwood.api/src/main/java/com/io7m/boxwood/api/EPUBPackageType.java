@@ -76,7 +76,7 @@ public interface EPUBPackageType
    * @return The cover image of the package, if one is defined
    */
 
-  default Optional<String> coverImage()
+  default Optional<EPUBManifestItem> coverImage()
   {
     final var coverItem =
       this.manifest()
@@ -86,7 +86,7 @@ public interface EPUBPackageType
         .findFirst();
 
     if (coverItem.isPresent()) {
-      return coverItem.map(EPUBManifestItem::realPath);
+      return coverItem;
     }
 
     final var legacyProperty =
@@ -103,6 +103,6 @@ public interface EPUBPackageType
           .stream()
           .filter(p -> Objects.equals(p.id(), property.content()))
           .findFirst()
-    ).map(EPUBManifestItem::realPath);
+    );
   }
 }

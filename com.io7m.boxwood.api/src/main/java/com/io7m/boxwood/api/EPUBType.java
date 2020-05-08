@@ -82,10 +82,10 @@ public interface EPUBType extends Closeable
    * @return The cover image for the EPUB, if any package defines one
    */
 
-  default Optional<String> coverImage()
+  default Optional<EPUBManifestItem> coverImage()
   {
     for (final var epubPackage : this.packages()) {
-      final Optional<String> coverOpt = epubPackage.coverImage();
+      final Optional<EPUBManifestItem> coverOpt = epubPackage.coverImage();
       if (coverOpt.isPresent()) {
         return coverOpt;
       }
