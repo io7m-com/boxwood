@@ -44,6 +44,10 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * The EPUB package parser.
+ */
+
 public final class EPUBPackageParser
 {
   private static final Logger LOG =
@@ -56,6 +60,20 @@ public final class EPUBPackageParser
   {
 
   }
+
+  /**
+   * Parse an EPUB package.
+   *
+   * @param errors          The error consumer
+   * @param sourceFile      The source file
+   * @param packageFileName The package file name
+   * @param stream          The input stream
+   *
+   * @return A parsed package
+   *
+   * @throws IOException      On I/O errors
+   * @throws EPUBXMLException On XML errors
+   */
 
   public static EPUBPackage parse(
     final EPUBErrorLogger errors,

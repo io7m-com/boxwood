@@ -20,8 +20,23 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * A retriever of subfiles inside an EPUB.
+ */
+
 public interface EPUBSubFileRetrieverType
 {
+  /**
+   * Retrieve the file named {@code file}.
+   *
+   * @param file The file name
+   *
+   * @return The file stream
+   *
+   * @throws FileNotFoundException If the file does not exist
+   * @throws IOException           On I/O errors
+   */
+
   InputStream retrieveSubFile(
     String file)
     throws FileNotFoundException, IOException;

@@ -16,8 +16,16 @@
 
 package com.io7m.boxwood.vanilla.internal;
 
+/**
+ * An exception caused by a missing but required file.
+ */
+
 public final class EPUBXMLExceptionMissingFile extends EPUBXMLException
 {
+  /**
+   * An exception caused by a missing but required file.
+   */
+
   public EPUBXMLExceptionMissingFile()
   {
 

@@ -16,8 +16,16 @@
 
 package com.io7m.boxwood.vanilla.internal;
 
+/**
+ * An exception caused by a missing but required XML element.
+ */
+
 public final class EPUBXMLExceptionMissingElement extends EPUBXMLException
 {
+  /**
+   * An exception caused by a missing but required XML element.
+   */
+
   public EPUBXMLExceptionMissingElement()
   {
 

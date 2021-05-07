@@ -36,6 +36,10 @@ public final class EPUBStrings implements EPUBStringsType
     this.resources = Objects.requireNonNull(inResources, "resources");
   }
 
+  /**
+   * @return The string resources
+   */
+
   public static EPUBStringsType create()
   {
     return new EPUBStrings(

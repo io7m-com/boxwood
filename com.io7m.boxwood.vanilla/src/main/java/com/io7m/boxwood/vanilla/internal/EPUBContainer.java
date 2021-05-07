@@ -31,6 +31,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * An EPUB container.
+ */
+
 public final class EPUBContainer
 {
   private static final Logger LOG =
@@ -44,6 +48,20 @@ public final class EPUBContainer
     this.epubPackages =
       Objects.requireNonNull(inEpubPackages, "epubPackages");
   }
+
+  /**
+   * Create an EPUB container.
+   *
+   * @param stream     The input stream
+   * @param errors     The error consumer
+   * @param sourceFile The source file name
+   * @param subFiles   The sub file retriever
+   *
+   * @return An EPUB container
+   *
+   * @throws IOException      On I/O errors
+   * @throws EPUBXMLException On XML parser errors
+   */
 
   public static EPUBContainer create(
     final EPUBErrorLogger errors,
@@ -124,6 +142,10 @@ public final class EPUBContainer
       throw new IllegalStateException(e);
     }
   }
+
+  /**
+   * @return The list of packages in the EPUB
+   */
 
   public List<EPUBPackage> packages()
   {

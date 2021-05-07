@@ -36,6 +36,10 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * The EPUB parser implementation.
+ */
+
 public final class EPUBParser implements EPUBParserType
 {
   private static final Logger LOG =
@@ -49,6 +53,13 @@ public final class EPUBParser implements EPUBParserType
   private final EPUBErrorLogger errorLogger;
   private final EPUBParseRequest request;
   private EPUBContainer container;
+
+  /**
+   * The EPUB parser implementation.
+   *
+   * @param inRequest The parse request
+   * @param inStrings The string resources
+   */
 
   public EPUBParser(
     final EPUBStringsType inStrings,

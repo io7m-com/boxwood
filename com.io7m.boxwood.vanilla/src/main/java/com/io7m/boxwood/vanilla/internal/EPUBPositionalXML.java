@@ -26,15 +26,17 @@ import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.util.LinkedList;
+
+/**
+ * An XML DOM parser that preserves lexical information.
+ */
 
 public final class EPUBPositionalXML
 {
@@ -45,6 +47,14 @@ public final class EPUBPositionalXML
 
   }
 
+  /**
+   * Retrieve lexical information for a node.
+   *
+   * @param node The node
+   *
+   * @return The lexical information
+   */
+
   @SuppressWarnings("unchecked")
   public static LexicalPosition<URI> lexicalOf(
     final Node node)
@@ -52,17 +62,30 @@ public final class EPUBPositionalXML
     return (LexicalPosition<URI>) node.getUserData(LEXICAL_KEY);
   }
 
+  /**
+   * Parse a document, preserving lexical information.
+   *
+   * @param source The source URI
+   * @param stream The input stream
+   *
+   * @return A parsed document
+   *
+   * @throws IOException                  On I/O errors
+   * @throws SAXException                 On parse errors
+   * @throws ParserConfigurationException On configuration errors
+   */
+
   public static Document readXML(
     final URI source,
     final InputStream stream)
     throws IOException, SAXException, ParserConfigurationException
   {
-    final SAXParserFactory factory =
+    final var factory =
       SAXParserFactory.newInstance();
-    final SAXParser parser =
+    final var parser =
       factory.newSAXParser();
 
-    final DocumentBuilderFactory docBuilderFactory =
+    final var docBuilderFactory =
       DocumentBuilderFactory.newInstance();
 
     docBuilderFactory.setValidating(false);
@@ -70,8 +93,8 @@ public final class EPUBPositionalXML
     docBuilderFactory.setXIncludeAware(false);
     docBuilderFactory.setExpandEntityReferences(false);
 
-    final DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
-    final Document document = docBuilder.newDocument();
+    final var docBuilder = docBuilderFactory.newDocumentBuilder();
+    final var document = docBuilder.newDocument();
     final DefaultHandler handler = new PositionalXMLHandler(document);
 
     final var inputSource = new InputSource(stream);
@@ -111,8 +134,8 @@ public final class EPUBPositionalXML
       throws SAXException
     {
       this.addTextIfNeeded();
-      final Element e = this.document.createElement(qName);
-      for (int index = 0; index < attributes.getLength(); ++index) {
+      final var e = this.document.createElement(qName);
+      for (var index = 0; index < attributes.getLength(); ++index) {
         e.setAttribute(
           attributes.getQName(index),
           attributes.getValue(index));
@@ -137,11 +160,11 @@ public final class EPUBPositionalXML
       final String qName)
     {
       this.addTextIfNeeded();
-      final Element closedEl = this.elementStack.pop();
+      final var closedEl = this.elementStack.pop();
       if (this.elementStack.isEmpty()) {
         this.document.appendChild(closedEl);
       } else {
-        final Element parentEl = this.elementStack.peek();
+        final var parentEl = this.elementStack.peek();
         parentEl.appendChild(closedEl);
       }
     }
@@ -160,7 +183,7 @@ public final class EPUBPositionalXML
     private void addTextIfNeeded()
     {
       if (this.textBuffer.length() > 0) {
-        final Element el = this.elementStack.peek();
+        final var el = this.elementStack.peek();
         final Node textNode = this.document.createTextNode(this.textBuffer.toString());
         el.appendChild(textNode);
         this.textBuffer.delete(0, this.textBuffer.length());

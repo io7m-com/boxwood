@@ -22,12 +22,28 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Utility functions for consuming XML.
+ */
+
 public final class EPUBXMLHelpers
 {
   private EPUBXMLHelpers()
   {
 
   }
+
+  /**
+   * Require that the given element has at least one child element with the given name.
+   *
+   * @param errors  The error consumer
+   * @param element The element
+   * @param name    The child element name
+   *
+   * @return A non-empty list of child elements
+   *
+   * @throws EPUBXMLExceptionMissingElement If no child elements have the given name
+   */
 
   public static List<Element> requireChildNodes(
     final EPUBErrorLogger errors,
@@ -55,6 +71,18 @@ public final class EPUBXMLHelpers
     return results;
   }
 
+  /**
+   * Require that the given element has at least one child element with the given name.
+   *
+   * @param errors  The error consumer
+   * @param element The element
+   * @param name    The child element name
+   *
+   * @return A child element
+   *
+   * @throws EPUBXMLExceptionMissingElement If no child elements have the given name
+   */
+
   public static Element requireChildNode(
     final EPUBErrorLogger errors,
     final Element element,
@@ -64,6 +92,16 @@ public final class EPUBXMLHelpers
     return requireChildNodeOpt(errors, element, name)
       .orElseThrow(EPUBXMLExceptionMissingElement::new);
   }
+
+  /**
+   * Require that the given element has at least one child element with the given name.
+   *
+   * @param errors  The error consumer
+   * @param element The element
+   * @param name    The child element name
+   *
+   * @return A child element
+   */
 
   public static Optional<Element> requireChildNodeOpt(
     final EPUBErrorLogger errors,

@@ -31,6 +31,10 @@ import java.util.function.Consumer;
 import static com.io7m.boxwood.parser.api.EPUBParseErrorType.Severity.ERROR;
 import static com.io7m.boxwood.parser.api.EPUBParseErrorType.Severity.WARNING;
 
+/**
+ * An error logger.
+ */
+
 public final class EPUBErrorLogger
 {
   private static final Logger LOG =
@@ -39,6 +43,13 @@ public final class EPUBErrorLogger
   private final EPUBStringsType strings;
   private final Consumer<EPUBParseError> errors;
   private URI source;
+
+  /**
+   * Construct an error logger.
+   *
+   * @param inStrings The string resources
+   * @param inErrors  The function that will receive errors
+   */
 
   public EPUBErrorLogger(
     final EPUBStringsType inStrings,
@@ -57,11 +68,25 @@ public final class EPUBErrorLogger
     this.errors.accept(error);
   }
 
+  /**
+   * Set the file source.
+   *
+   * @param uri The source URI
+   */
+
   public void setSource(
     final URI uri)
   {
     this.source = Objects.requireNonNull(uri, "uri");
   }
+
+  /**
+   * Log a formatted warning.
+   *
+   * @param position The lexical position
+   * @param id       The warning string ID
+   * @param args     The warning arguments
+   */
 
   public void formattedWarning(
     final LexicalPosition<URI> position,
@@ -77,6 +102,14 @@ public final class EPUBErrorLogger
     );
   }
 
+  /**
+   * Log a formatted warning.
+   *
+   * @param node The node
+   * @param id   The warning string ID
+   * @param args The warning arguments
+   */
+
   public void formattedXMLWarning(
     final Node node,
     final String id,
@@ -85,6 +118,14 @@ public final class EPUBErrorLogger
     this.formattedWarning(EPUBPositionalXML.lexicalOf(node), id, args);
   }
 
+  /**
+   * Log a formatted error.
+   *
+   * @param node The node
+   * @param id   The warning string ID
+   * @param args The warning arguments
+   */
+
   public void formattedXMLError(
     final Node node,
     final String id,
@@ -92,6 +133,14 @@ public final class EPUBErrorLogger
   {
     this.formattedError(EPUBPositionalXML.lexicalOf(node), id, args);
   }
+
+  /**
+   * Log a formatted error.
+   *
+   * @param position The lexical position
+   * @param id       The warning string ID
+   * @param args     The warning arguments
+   */
 
   public void formattedError(
     final LexicalPosition<URI> position,
@@ -106,6 +155,12 @@ public final class EPUBErrorLogger
         .build()
     );
   }
+
+  /**
+   * Log an error for the given exception.
+   *
+   * @param e The exception
+   */
 
   public void exceptionError(
     final SAXParseException e)
@@ -123,6 +178,12 @@ public final class EPUBErrorLogger
         ).build()
     );
   }
+
+  /**
+   * Log an error for the given exception.
+   *
+   * @param e The exception
+   */
 
   public void exceptionError(
     final Exception e)

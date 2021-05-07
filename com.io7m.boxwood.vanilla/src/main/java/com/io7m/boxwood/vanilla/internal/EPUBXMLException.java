@@ -16,8 +16,16 @@
 
 package com.io7m.boxwood.vanilla.internal;
 
+/**
+ * An exception caused by XML.
+ */
+
 public class EPUBXMLException extends Exception
 {
+  /**
+   * An exception caused by XML.
+   */
+
   public EPUBXMLException()
   {
 

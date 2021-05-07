@@ -16,8 +16,16 @@
 
 package com.io7m.boxwood.vanilla.internal;
 
+/**
+ * An exception caused by a failure to parse XML.
+ */
+
 public final class EPUBXMLExceptionParsing extends EPUBXMLException
 {
+  /**
+   * An exception caused by a failure to parse XML.
+   */
+
   public EPUBXMLExceptionParsing()
   {
 

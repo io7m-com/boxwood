@@ -26,6 +26,10 @@ import java.nio.file.NoSuchFileException;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * An EPUB.
+ */
+
 public final class EPUB implements EPUBType
 {
   private final ZipFile file;
