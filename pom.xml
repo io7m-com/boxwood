@@ -32,6 +32,7 @@
     <com.codacy.id>a10fe1a6940244269a3117598da5b82d</com.codacy.id>
     <io7m.api.previousVersion>0.0.1-SNAPSHOT</io7m.api.previousVersion>
     <io7m.org.immutables.version>2.8.3</io7m.org.immutables.version>
+    <junit.version>5.8.1</junit.version>
   </properties>
 
   <licenses>
@@ -102,17 +103,17 @@
       <dependency>
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.annotation.bundle</artifactId>
-        <version>1.0.0</version>
+        <version>1.1.1</version>
       </dependency>
       <dependency>
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.annotation.versioning</artifactId>
-        <version>1.1.0</version>
+        <version>1.1.2</version>
       </dependency>
       <dependency>
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.service.component.annotations</artifactId>
-        <version>1.4.0</version>
+        <version>1.5.0</version>
       </dependency>
       <dependency>
         <groupId>com.io7m.jlexing</groupId>
@@ -132,22 +133,22 @@
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-compress</artifactId>
-        <version>1.20</version>
+        <version>1.21</version>
       </dependency>
       <dependency>
         <groupId>org.w3c</groupId>
         <artifactId>epubcheck</artifactId>
-        <version>4.2.2</version>
+        <version>4.2.6</version>
       </dependency>
       <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-engine</artifactId>
-        <version>5.6.2</version>
+        <version>${junit.version}</version>
       </dependency>
       <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-api</artifactId>
-        <version>5.6.2</version>
+        <version>${junit.version}</version>
       </dependency>
       <dependency>
         <groupId>org.mockito</groupId>
@@ -157,7 +158,7 @@
       <dependency>
         <groupId>nl.jqno.equalsverifier</groupId>
         <artifactId>equalsverifier</artifactId>
-        <version>3.1.13</version>
+        <version>3.7.2</version>
       </dependency>
       <dependency>
         <groupId>com.io7m.primogenitor</groupId>
