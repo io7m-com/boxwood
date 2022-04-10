@@ -16,7 +16,7 @@
 
   <name>com.io7m.boxwood.parser.api</name>
   <description>EPUB Parser (Parser API)</description>
-  <url>http://github.com/io7m/boxwood</url>
+  <url>https://www.io7m.com/software/boxwood</url>
 
   <dependencies>
     <dependency>
