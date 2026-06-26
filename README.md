@@ -1,22 +1,12 @@
-boxwood
-===
+ERROR com.io7m.ghrepostools.Main : The specified command does not exist.
+  Command    : README
+  Error Code : command-nonexistent
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.io7m.boxwood/com.io7m.boxwood.svg?style=flat-square)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.io7m.boxwood%22)
-[![Maven Central (snapshot)](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fcentral.sonatype.com%2Frepository%2Fmaven-snapshots%2Fcom%2Fio7m%2Fboxwood%2Fcom.io7m.boxwood%2Fmaven-metadata.xml&style=flat-square)](https://central.sonatype.com/repository/maven-snapshots/com/io7m/boxwood/)
-[![Codecov](https://img.shields.io/codecov/c/github/io7m-com/boxwood.svg?style=flat-square)](https://codecov.io/gh/io7m-com/boxwood)
-![Java Version](https://img.shields.io/badge/21-java?label=java&color=e6c35c)
-
-![com.io7m.boxwood](./src/site/resources/boxwood.jpg?raw=true)
-
-| JVM | Platform | Status |
-|-----|----------|--------|
-| OpenJDK (Temurin) Current | Linux | [![Build (OpenJDK (Temurin) Current, Linux)](https://img.shields.io/github/actions/workflow/status/io7m-com/boxwood/main.linux.temurin.current.yml)](https://www.github.com/io7m-com/boxwood/actions?query=workflow%3Amain.linux.temurin.current)|
-| OpenJDK (Temurin) LTS | Linux | [![Build (OpenJDK (Temurin) LTS, Linux)](https://img.shields.io/github/actions/workflow/status/io7m-com/boxwood/main.linux.temurin.lts.yml)](https://www.github.com/io7m-com/boxwood/actions?query=workflow%3Amain.linux.temurin.lts)|
-| OpenJDK (Temurin) Current | Windows | [![Build (OpenJDK (Temurin) Current, Windows)](https://img.shields.io/github/actions/workflow/status/io7m-com/boxwood/main.windows.temurin.current.yml)](https://www.github.com/io7m-com/boxwood/actions?query=workflow%3Amain.windows.temurin.current)|
-| OpenJDK (Temurin) LTS | Windows | [![Build (OpenJDK (Temurin) LTS, Windows)](https://img.shields.io/github/actions/workflow/status/io7m-com/boxwood/main.windows.temurin.lts.yml)](https://www.github.com/io7m-com/boxwood/actions?query=workflow%3Amain.windows.temurin.lts)|
-
-## boxwood
-
-An [EPUB](https://www.w3.org/publishing/epub3/) parser.
-
-
+DEBUG com.io7m.ghrepostools.Main : Exception: 
+com.io7m.quarrel.core.QException: The specified command does not exist.
+	at com.io7m.quarrel.core.QApplication.parseExpanded(QApplication.java:244)
+	at com.io7m.quarrel.core.QApplication.parse(QApplication.java:152)
+	at com.io7m.quarrel.core.QApplicationType.run(QApplicationType.java:94)
+	at com.io7m.ghrepostools.Main.run(Main.java:126)
+	at com.io7m.ghrepostools.Main.mainExitless(Main.java:110)
+	at com.io7m.ghrepostools.Main.main(Main.java:95)
